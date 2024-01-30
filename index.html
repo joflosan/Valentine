@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+
+        #question {
+            color: black;
+            font-size: 24px;
+            margin-top: 50px;
+        }
+
+        #blink {
+            color: red;
+            animation: blink 1s infinite;
+        }
+
+        #options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .option {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .option:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hearts-page {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-size: 3em;
+            color: red;
+        }
+
+        .hearts-page::before {
+            content: '❤️❤️❤️❤️❤️❤️';
+        }
+    </style>
+</head>
+<body>
+
+    <div id="question">
+        Willst du mein Valentin sein, Moana<span id="blink">?</span>
+    </div>
+
+    <div id="options">
+        <div class="option" onclick="redirectToHeartsPage()">Yes</div>
+        <div class="option" onmouseover="flyAway()">Nein</div>
+    </div>
+
+    <div class="hearts-page" id="heartsPage"></div>
+
+    <script>
+        function redirectToHeartsPage() {
+            document.getElementById('heartsPage').style.display = 'flex';
+        }
+
+        function flyAway() {
+            alert('Sorry, Nein fliegt weg!');
+        }
+    </script>
+
+</body>
+</html>
